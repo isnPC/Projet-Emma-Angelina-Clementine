@@ -1,4 +1,7 @@
-def choixCouleur(couleur) :
+import tkinter as tk
+
+def choixCouleur() :
+   couleur = coul.get()
    if couleur == "noir":
     affichageCouleur.configure(text="Vous pouvez ajouter des pièces de n'importe quelle couleur.")
    if couleur == "blanc":
@@ -19,3 +22,17 @@ def choixCouleur(couleur) :
     affichageCouleur.configure(text="Vous pouvez ajouter des pièces noires ou blanches.")
    if couleur == "doré":
     affichageCouleur.configure(text="Ne pas ajouter de pièces argenteés.")
+
+
+fenetre = tk.Tk()
+
+coul = tk.StringVar()
+tk.Label(text="Entrez une couleur : ").grid(row=0, column=0)
+tk.Entry(textvariable = coul).grid(row=0,column=1)
+
+tk.Button(text="Valider", command=choixCouleur).grid(row=0,column=2)
+
+affichageCouleur = tk.Label()
+affichageCouleur.grid(row=1, column=0, columnspan=3)
+
+fenetre.mainloop()
